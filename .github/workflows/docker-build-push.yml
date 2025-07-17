@@ -20,4 +20,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: sruckh/zonos-runpod:latest
+          tags: gemneye/zonos-runpod:latest
