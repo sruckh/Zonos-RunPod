@@ -9,3 +9,5 @@ WORKDIR /app
 COPY . ./
 
 RUN uv pip install --system -e . && uv pip install --system -e .[compile]
+
+CMD ["python3", "gradio_interface.py"]
