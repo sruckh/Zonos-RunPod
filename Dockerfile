@@ -10,4 +10,7 @@ COPY . ./
 
 RUN uv pip install --system -e . && uv pip install --system -e .[compile]
 
-CMD ["python3", "gradio_interface.py"]
+COPY startup.sh ./
+RUN chmod +x startup.sh
+
+CMD ["./startup.sh"]
