@@ -32,8 +32,5 @@ compile = [
 [tool.setuptools.packages.find]
 include = ["zonos"]
 
-[tool.uv]
-no-build-isolation-package = ["flash-attn", "mamba-ssm", "causal-conv1d"]
-
 [tool.ruff]
 line-length = 120

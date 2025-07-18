@@ -1,16 +1,12 @@
 FROM pytorch/pytorch:2.6.0-cuda12.4-cudnn9-devel
-RUN pip install uv
 
-RUN apt update && \
-    apt install -y espeak-ng && \
+RUN apt-get update && \
+    apt-get install -y espeak-ng && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-COPY . ./
+COPY . .
 
-RUN uv pip install --system -e . && uv pip install --system -e .[compile]
-
-COPY startup.sh ./
 RUN chmod +x startup.sh
 
 CMD ["./startup.sh"]
