@@ -13,7 +13,7 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 
 # Install Flash Attention with correct CUDA/PyTorch compatibility
 echo "⚡ Installing Flash Attention..."
-pip3 install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.1/flash_attn-2.8.1+cu12torch2.7cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
+pip3 install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.1/flash_attn-2.8.1+cu12torch2.7cxx11abiFALSE-cp312-cp312-linux_x86_64.whl
 
 # Install remaining project dependencies
 echo "📋 Installing project dependencies..."
