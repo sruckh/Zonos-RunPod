@@ -1,0 +1,17 @@
+*.whl
+flash_attn*.whl
+*.pyc
+__pycache__/
+.git/
+.gitignore
+*.md
+!README.md
+!CLAUDE.md
+.python-version
+uv.lock
+.venv/
+.env
+.DS_Store
+*.log
+temp/
+tmp/
