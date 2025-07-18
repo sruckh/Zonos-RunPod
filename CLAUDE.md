@@ -23,3 +23,6 @@ Zonos is a text-to-speech model with a modular architecture:
 - **Configs (zonos/config.py)**: Dataclasses for model and inference parameters.
 
 The model generates speech codes from conditioned inputs, decodes to audio at 44kHz, supporting multilingual TTS, voice cloning, and emotion control.
+
+## Deployment Status
+Project Zonos has been successfully dockerized for RunPod deployment. Key updates include a minimal Dockerfile using python:3.11-slim, runtime installation script (startup.sh) for uv, espeak-ng, and dependencies, model downloading at runtime to /Zyphra (persistent volume), and existing Gradio interface as entry point. Environment variables configured for RunPod template (e.g., GRADIO_SHARE, HF_TOKEN). GitHub Actions set up for auto-building/pushing to gemneye/zonos-runpod on main pushes. All changes committed and pushed to sruckh/Zonos-RunPod. Ready for deployment on RunPod.
