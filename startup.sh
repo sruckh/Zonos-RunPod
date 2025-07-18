@@ -17,8 +17,11 @@ pip3 install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8
 
 # Install remaining project dependencies
 echo "📋 Installing project dependencies..."
-# Install setuptools in the uv environment first
-uv add setuptools wheel build
+# First sync base dependencies to create the environment
+uv sync
+# Then install build tools in the created environment
+uv pip install setuptools wheel build
+# Finally install compile extras
 uv sync --extra compile
 
 echo "✅ Initialization complete. Starting Gradio interface..."
