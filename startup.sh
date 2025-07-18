@@ -9,11 +9,11 @@ pip3 install --upgrade setuptools wheel build
 
 # Install PyTorch with CUDA 12.8 support first
 echo "📦 Installing PyTorch with CUDA 12.8 support..."
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+pip3 install torch==2.6.0 torchvision torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu128
 
 # Install Flash Attention with correct CUDA/PyTorch compatibility
 echo "⚡ Installing Flash Attention..."
-pip3 install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.1/flash_attn-2.8.1+cu12torch2.7cxx11abiFALSE-cp312-cp312-linux_x86_64.whl
+pip3 install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.1/flash_attn-2.8.1+cu12torch2.6cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 
 # Install remaining project dependencies
 echo "📋 Installing project dependencies..."
