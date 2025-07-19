@@ -16,18 +16,20 @@ fi
 # The base image already has PyTorch 2.6.0+cu124 installed
 # We'll work with CUDA 12.4, not 12.6
 
-# Install Flash Attention with correct CUDA/PyTorch compatibility
-echo "⚡ Installing Flash Attention..."
-# Use the cu12 wheel for CUDA 12.x compatibility
-pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.1/flash_attn-2.8.1+cu12torch2.6cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
-
-# Install mamba-ssm and causal-conv1d
-echo "🔧 Installing mamba-ssm and causal-conv1d..."
-# Try to use pre-built wheels by ensuring setuptools is up to date
+# Try to install optional compile dependencies
+echo "🔧 Installing optional compile dependencies..."
+# Upgrade pip and setuptools first
 pip install --upgrade pip setuptools wheel
-# Install with no build isolation to use system packages
-pip install --no-build-isolation mamba-ssm==2.2.5
-pip install --no-build-isolation causal-conv1d==1.5.2
+
+# Try installing from PyPI with specific versions that might have wheels
+echo "⚡ Attempting to install flash-attn from PyPI..."
+pip install flash-attn==2.8.1 || echo "   Flash attention installation failed - will run without optimization"
+
+echo "📦 Attempting to install mamba-ssm..."
+pip install mamba-ssm==2.2.5 || echo "   Mamba-SSM installation failed - transformer models will still work"
+
+echo "📦 Attempting to install causal-conv1d..."  
+pip install causal-conv1d==1.5.2 || echo "   Causal-conv1d installation failed - transformer models will still work"
 
 # Install all other dependencies from pyproject.toml
 echo "📋 Installing project dependencies..."
