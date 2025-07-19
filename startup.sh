@@ -18,8 +18,8 @@ fi
 
 # Install Flash Attention with correct CUDA/PyTorch compatibility
 echo "⚡ Installing Flash Attention..."
-# Use the CUDA 12.4 compatible wheel instead of the generic cu12
-pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.1/flash_attn-2.8.1+cu124torch2.6cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
+# Use the cu12 wheel for CUDA 12.x compatibility
+pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.1/flash_attn-2.8.1+cu12torch2.6cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
 
 # Install mamba-ssm and causal-conv1d
 echo "🔧 Installing mamba-ssm and causal-conv1d..."
