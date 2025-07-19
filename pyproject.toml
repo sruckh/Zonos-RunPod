@@ -23,11 +23,7 @@ dependencies = [
 
 # These are technically optional, but mamba-ssm is required to run hybrid models.
 [project.optional-dependencies]
-compile = [
-    "flash-attn>=2.7.3",
-    "mamba-ssm>=2.2.4",
-    "causal-conv1d>=1.5.0.post8",
-]
+compile = []
 
 [tool.setuptools.packages.find]
 include = ["zonos"]
