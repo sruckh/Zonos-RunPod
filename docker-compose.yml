@@ -12,5 +12,5 @@ services:
     tty: true
     command: ["python3", "gradio_interface.py"]
     environment:
-      - NVIDIA_VISIBLE_DEVICES=0
+      - NVIDIA_VISIBLE_DEVICES=all
       - GRADIO_SHARE=False
