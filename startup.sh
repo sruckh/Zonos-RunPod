@@ -3,10 +3,14 @@ set -e
 
 echo "🚀 Starting Zonos RunPod initialization..."
 
-# Install compile-time dependencies first (as pre-compiled wheels from PyPI)
+# Install PyTorch with CUDA 12.6 support first
+echo "🔦 Installing PyTorch with CUDA 12.6 support..."
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu126
+
+# Install compile-time dependencies (as pre-compiled wheels from PyPI)
 echo "🔧 Installing compile-time dependencies..."
 pip install mamba-ssm==2.2.4
-pip install causal-conv1d==1.5.0.post8
+pip install causal-conv1d==1.5.2
 
 # Install Flash Attention with correct CUDA/PyTorch compatibility
 echo "⚡ Installing Flash Attention..."
