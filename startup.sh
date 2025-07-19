@@ -21,11 +21,6 @@ echo "🔧 Installing optional compile dependencies..."
 # Upgrade pip and setuptools first
 pip install --upgrade pip setuptools wheel
 
-# Install Flash Attention with correct CUDA/PyTorch compatibility
-echo "⚡ Installing Flash Attention..."
-# Use v2.7.4.post1 which is compatible with PyTorch 2.6, Python 3.11, CUDA 12.x
-pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.6cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
-
 echo "📦 Attempting to install mamba-ssm..."
 pip install mamba-ssm==2.2.5 || echo "   Mamba-SSM installation failed - transformer models will still work"
 
@@ -35,6 +30,11 @@ pip install causal-conv1d==1.5.2 || echo "   Causal-conv1d installation failed -
 # Install all other dependencies from pyproject.toml
 echo "📋 Installing project dependencies..."
 pip install .
+
+# Install Flash Attention last to avoid conflicts
+echo "⚡ Installing Flash Attention..."
+# Use v2.7.4.post1 which is compatible with PyTorch 2.6, Python 3.11, CUDA 12.x
+pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.6cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
 
 echo "✅ Initialization complete. Starting Gradio interface..."
 
