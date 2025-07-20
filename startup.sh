@@ -31,6 +31,10 @@ pip install causal-conv1d==1.5.2 || echo "   Causal-conv1d installation failed -
 echo "📋 Installing project dependencies..."
 pip install .
 
+# Ensure correct gradio version (force downgrade if needed)
+echo "📌 Ensuring correct Gradio version..."
+pip install gradio==5.16.1 --force-reinstall
+
 # Install Flash Attention last to avoid conflicts
 echo "⚡ Installing Flash Attention..."
 # Use v2.7.4.post1 which is compatible with PyTorch 2.6, Python 3.11, CUDA 12.x
