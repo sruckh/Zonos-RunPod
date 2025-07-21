@@ -238,12 +238,13 @@ def build_interface():
                     info="Select a language code.",
                 )
             prefix_audio = gr.Audio(
-                value="assets/silence_100ms.wav",
+                value=None,
                 label="Optional Prefix Audio (continue from this audio)",
                 type="filepath",
             )
             with gr.Column():
                 speaker_audio = gr.Audio(
+                    value=None,
                     label="Optional Speaker Audio (for cloning)",
                     type="filepath",
                 )
@@ -346,8 +347,11 @@ def build_interface():
             ],
         )
 
-        # On page load, trigger the same UI refresh
-        demo.load(
+        # Deferred initialization to avoid audio loading issues
+        initial_model = supported_models[0]
+        load_model_if_needed(initial_model)
+        
+        model_choice.change(
             fn=update_ui,
             inputs=[model_choice],
             outputs=[
